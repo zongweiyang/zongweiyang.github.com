@@ -1,0 +1,109 @@
+<html>
+	
+	<head>
+	<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+		<title>post</title>
+		<style type="text/css">
+		div{
+			width: 100%;
+			height: 100%;
+		}
+			body {padding-left: 100;
+				padding-right:100;
+				background-color: black;
+			}
+			input {color: red;
+				background-color: ;
+				width:300;
+				height: 40;
+				font-size: 30;
+				padding: 4 4 4 4;
+				float :right;
+				
+			}
+			p {color: blue;
+				font-size: 40;
+			}
+			form{
+				padding: 2 2 2 2;
+			}
+			.inputBtn{
+				width:280;
+				height: 100;
+				font-size: 30;
+			}
+		</style>
+	</head>
+	<body >
+	<script type="text/javascript">
+	
+	function totalScoreClick(){
+		var judge1Text = document.getElementById("judge1").value;
+		var judge2Text = document.getElementById("judge2").value;
+		var judge3Text = document.getElementById("judge3").value;
+		var peopleHighText = document.getElementById("peopleHigh").value;
+		var peopleSelfText = document.getElementById("peopleSelf").value;
+		var num = parseFloat(judge1Text) + parseFloat(judge2Text) + parseFloat(judge3Text);
+		var num1 = parseFloat(num)/3*0.7;
+		var people = parseFloat(peopleSelfText)/parseFloat(peopleHighText)*30;
+		var score = parseFloat(num1)+parseFloat(people);
+		document.getElementById("totalScore").value = score.toFixed(2).toString();
+	}
+	function judgeAvgClick(){
+		var judge1Text = document.getElementById("judge1").value;
+		var judge2Text = document.getElementById("judge2").value;
+		var judge3Text = document.getElementById("judge3").value;
+			var num = parseFloat(judge1Text) + parseFloat(judge2Text) + parseFloat(judge3Text);
+		document.getElementById("judgeWeight").value = num/3;
+	}
+	function judgeWeightClick(){
+
+		var judge1Text = document.getElementById("judge1").value;
+		var judge2Text = document.getElementById("judge2").value;
+		var judge3Text = document.getElementById("judge3").value;
+			var num = parseFloat(judge1Text) + parseFloat(judge2Text) + parseFloat(judge3Text);
+		document.getElementById("judgeAvg").value = num/3*0.7;
+	}
+	function peopleWeightClick(){
+
+		var peopleHighText = document.getElementById("peopleHigh").value;
+		var peopleSelfText = document.getElementById("peopleSelf").value;
+		var peopleWeightText = document.getElementById("peopleWeight");
+		peopleWeightText.value = parseFloat(peopleSelfText)/parseFloat(peopleHighText)*30;
+	}
+	function clearall(){
+		document.getElementById("judge1").value = "";
+		document.getElementById("judge2").value = "";
+		document.getElementById("judge3").value = "";
+		document.getElementById("peopleHigh").value = "";
+		document.getElementById("peopleSelf").value = "";
+		document.getElementById("peopleWeight").value = "";
+		document.getElementById("judgeAvg").value = "";
+		document.getElementById("judgeWeight").value = "";
+		document.getElementById("totalScore").value = "";
+	}
+	</script>
+ 			 	<div style="align:middle">
+					<form  action="">
+			 			 <p>评委1打分：<input type="text" id="judge1" /></p>
+			 			 <p>评委2打分：<input type="text" id="judge2" /></p>
+			 			 <p>评委3打分：<input type="text" id="judge3" /></p>
+			 			 <p>大众评委最高分：<input type="text" id="peopleHigh" /></p>
+			 			 <p>大众评委选手得分：<input type="text" id="peopleSelf" /></p>
+			 			 <p>评委平均分：<input type="text" id="judgeAvg" /></p>
+			 			 <p>评委加权分：<input type="text" id="judgeWeight" /></p>
+			 			 <p>大众评委加权分：<input type="text" id="peopleWeight" /></p>
+			 			 <p>选手最终得分：<input class="totalclass" type="text" id="totalScore" /></p>
+					</form>
+					  	
+					  	 <button class="inputBtn" type="button" onclick="clearall();" >清空</button>
+					  	 <button class="inputBtn" type="button"  onclick="totalScoreClick();" style="float:right;width:400;">总分</button>
+					  	 <br/><br/>
+			 			 <button class="inputBtn" type="button"  onclick="judgeAvgClick();" /> 计算评委平均分</button>
+			 			 <button class="inputBtn" type="button"  onclick="judgeWeightClick();" >计算评委加权分</button>
+			 			 <button class="inputBtn" type="button"  onclick="peopleWeightClick();" >大众评委加权分</button>
+			 			 <br/><br/><br/><br/>
+				</div>
+
+	</body>
+</html>
